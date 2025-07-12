@@ -28,7 +28,9 @@ body, html {
 .overlay h1 {
   font-size: 3rem;
   line-height: 1.5;
+  white-space: nowrap;
 }
+
 
 @media screen and (max-width: 600px) {
   .overlay h1 {
