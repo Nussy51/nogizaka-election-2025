@@ -1,4 +1,20 @@
-/* 画像上の大きなタイトル */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.hero {
+  background: url('https://suganabejoya.github.io/nogizaka-election-2025/images/main.jpg') center center/cover no-repeat;
+  height: 100vh;
+  position: relative;
+}
+
 .title {
   position: absolute;
   top: 10%;
@@ -8,12 +24,11 @@
   font-size: 4rem;
   color: white;
   text-shadow: 4px 4px 10px rgba(0,0,0,0.8);
-  pointer-events: none; /* クリック不可に */
-  user-select: none;    /* 選択不可に */
+  pointer-events: none;
+  user-select: none;
   z-index: 10;
 }
 
-/* .overlay は中央のキャッチフレーズ */
 .overlay {
   position: absolute;
   top: 50%;
@@ -25,26 +40,13 @@
   z-index: 5;
 }
 
-/* 投票ボタンを大きく */
-.btn-vote {
-  display: inline-block;
-  padding: 25px 60px;   /* 大きめに */
-  background-color: #d32f2f;
-  color: white;
+.overlay h1 {
   font-family: 'Anton', sans-serif;
-  font-size: 2rem;      /* フォントサイズもアップ */
-  text-decoration: none;
-  border-radius: 6px;
-  box-shadow: 0 6px 12px rgba(211, 47, 47, 0.7);
-  transition: background-color 0.3s ease;
+  font-size: 3rem;
+  line-height: 1.5;
+  white-space: normal;
 }
 
-.btn-vote:hover {
-  background-color: #b71c1c;
-  box-shadow: 0 8px 16px rgba(183, 28, 28, 0.9);
-}
-
-/* スマホ対応 */
 @media screen and (max-width: 600px) {
   .title {
     font-size: 2.5rem;
@@ -59,4 +61,27 @@
     padding: 20px 40px;
     font-size: 1.4rem;
   }
+}
+
+.vote-container {
+  text-align: center;
+  margin: 20px 0 50px 0;
+}
+
+.btn-vote {
+  display: inline-block;
+  padding: 25px 60px;
+  background-color: #d32f2f;
+  color: white;
+  font-family: 'Anton', sans-serif;
+  font-size: 2rem;
+  text-decoration: none;
+  border-radius: 6px;
+  box-shadow: 0 6px 12px rgba(211, 47, 47, 0.7);
+  transition: background-color 0.3s ease;
+}
+
+.btn-vote:hover {
+  background-color: #b71c1c;
+  box-shadow: 0 8px 16px rgba(183, 28, 28, 0.9);
 }
