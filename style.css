@@ -4,24 +4,24 @@
   box-sizing: border-box;
 }
 
-/* 画像の上（画像の外）に置くタイトル */
+/* ページの上部タイトル */
 .page-title {
   text-align: center;
   font-family: 'Anton', sans-serif;
   font-size: 4rem;
   margin: 40px 0 20px 0;
-  color: #d32f2f; /* 赤みで強調 */
+  color: #d32f2f;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
 }
 
-/* .hero は画像背景のみ */
+/* hero は背景画像 */
 .hero {
   background: url('https://suganabejoya.github.io/nogizaka-election-2025/images/main.jpg') center center/cover no-repeat;
   height: 100vh;
   position: relative;
 }
 
-/* オーバーレイのキャッチは一行表示 */
+/* オーバーレイ中央のキャッチフレーズ */
 .overlay {
   position: absolute;
   top: 50%;
@@ -33,14 +33,14 @@
   z-index: 5;
 }
 
-.overlay h1 {
+.overlay h2 {
   font-family: 'Anton', sans-serif;
   font-size: 3rem;
-  line-height: 1; /* 行間詰める */
-  white-space: nowrap; /* 一行にまとめる */
+  line-height: 1;
+  white-space: nowrap;
 }
 
-/* 投票ボタンはそのまま */
+/* 投票ボタン */
 .vote-container {
   text-align: center;
   margin: 20px 0 50px 0;
@@ -71,7 +71,7 @@
     margin: 30px 0 15px 0;
   }
 
-  .overlay h1 {
+  .overlay h2 {
     font-size: 1.5rem;
   }
 
@@ -80,3 +80,4 @@
     font-size: 1.4rem;
   }
 }
+
