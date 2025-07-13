@@ -1,20 +1,19 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* 画像上の大きなタイトル */
+.title {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  font-family: 'Anton', sans-serif;
+  font-size: 4rem;
+  color: white;
+  text-shadow: 4px 4px 10px rgba(0,0,0,0.8);
+  pointer-events: none; /* クリック不可に */
+  user-select: none;    /* 選択不可に */
+  z-index: 10;
 }
 
-body, html {
-  height: 100%;
-  font-family: 'Helvetica Neue', sans-serif;
-}
-
-.hero {
-  background: url('images/main.jpg') center center/cover no-repeat;
-  height: 100vh;
-  position: relative;
-}
-
+/* .overlay は中央のキャッチフレーズ */
 .overlay {
   position: absolute;
   top: 50%;
@@ -23,42 +22,41 @@ body, html {
   text-align: center;
   color: white;
   text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
+  z-index: 5;
 }
 
-.overlay h1 {
-  font-family: 'Anton', sans-serif;
-  font-size: 3rem;
-  line-height: 1.5;
-  white-space: normal;
-}
-
-@media screen and (max-width: 600px) {
-  .overlay h1 {
-    font-size: 2rem;
-  }
-}
-
-/* 画像の下に配置するボタンのコンテナ */
-.vote-container {
-  text-align: center;
-  margin: 20px 0 50px 0;
-}
-
-/* 投票ボタンスタイル */
+/* 投票ボタンを大きく */
 .btn-vote {
   display: inline-block;
-  padding: 15px 40px;
+  padding: 25px 60px;   /* 大きめに */
   background-color: #d32f2f;
   color: white;
   font-family: 'Anton', sans-serif;
-  font-size: 1.5rem;
+  font-size: 2rem;      /* フォントサイズもアップ */
   text-decoration: none;
-  border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(211, 47, 47, 0.6);
+  border-radius: 6px;
+  box-shadow: 0 6px 12px rgba(211, 47, 47, 0.7);
   transition: background-color 0.3s ease;
 }
 
 .btn-vote:hover {
   background-color: #b71c1c;
-  box-shadow: 0 6px 12px rgba(183, 28, 28, 0.8);
+  box-shadow: 0 8px 16px rgba(183, 28, 28, 0.9);
+}
+
+/* スマホ対応 */
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 2.5rem;
+    top: 5%;
+  }
+
+  .overlay h1 {
+    font-size: 1.5rem;
+  }
+
+  .btn-vote {
+    padding: 20px 40px;
+    font-size: 1.4rem;
+  }
 }
