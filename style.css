@@ -29,7 +29,7 @@ body, html {
   font-family: 'Anton', sans-serif;
   font-size: 3rem;
   line-height: 1.5;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 @media screen and (max-width: 600px) {
@@ -37,13 +37,18 @@ body, html {
     font-size: 2rem;
   }
 }
-/* 既存の .overlay h1 はそのまま */
 
+/* 画像の下に配置するボタンのコンテナ */
+.vote-container {
+  text-align: center;
+  margin: 20px 0 50px 0;
+}
+
+/* 投票ボタンスタイル */
 .btn-vote {
   display: inline-block;
-  margin-top: 30px;
   padding: 15px 40px;
-  background-color: #d32f2f; /* 赤色で厳つさアップ */
+  background-color: #d32f2f;
   color: white;
   font-family: 'Anton', sans-serif;
   font-size: 1.5rem;
