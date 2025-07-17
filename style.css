@@ -90,3 +90,27 @@ body, html {
     font-size: 1.4rem;
   }
 }
+.overview {
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.overview h3 {
+  font-family: 'Anton', sans-serif;
+  font-size: 2rem;
+  color: #d32f2f;
+  margin-bottom: 15px;
+}
+
+.overview p {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
