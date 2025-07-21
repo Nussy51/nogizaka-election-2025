@@ -74,7 +74,45 @@ body, html {
   background-color: #b71c1c;
   box-shadow: 0 8px 16px rgba(183, 28, 28, 0.9);
 }
+.members {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
 
+.members h2 {
+  font-size: 2rem;
+  margin: 2rem 0 1rem;
+  color: #333;
+}
+
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+  justify-items: center;
+}
+
+.member img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.member img:hover {
+  transform: scale(1.05);
+}
+
+.member p {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #444;
+}
 /* スマホ対応 */
 @media screen and (max-width: 600px) {
   .page-title {
