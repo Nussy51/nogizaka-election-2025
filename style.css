@@ -182,3 +182,13 @@ body, html {
 .members h2 {
   margin-top: 0;
 }
+.section-title {
+  margin-top: 60px;  /* 上の余白はそのまま */
+  margin-bottom: 0;  /* 下の余白をゼロに */
+  padding-bottom: 0; /* 念のためパディングもゼロ */
+}
+
+.members h2 {
+  margin-top: 0;    /* 上の余白をゼロに */
+  padding-top: 0;   /* 念のためパディングもゼロ */
+}
