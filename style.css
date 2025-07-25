@@ -170,3 +170,9 @@ body, html {
 .members h2 {
   margin-top: 5px;
 }
+.section-title {
+  margin: 60px 0 2px;  /* 下の余白を2pxに */
+}
+.members h2 {
+  margin-top: 2px;     /* 上の余白を2pxに */
+}
