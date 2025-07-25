@@ -155,12 +155,13 @@ body, html {
 .section-title {
   text-align: center;
   font-size: 2rem;
-  margin: 60px 0 0px;
+  margin: 60px 0 10px; /* ↓ 30px → 10px に変更 */
   color: #333;
   font-weight: bold;
   letter-spacing: 0.1em;
 }
-h2 {
-  margin-top: 5px;  /* デフォルトだと大きめなので縮める */
+
+.members h2 {
+  margin-top: 10px; /* デフォルトの間隔を詰める */
 }
 
