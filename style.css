@@ -164,4 +164,9 @@ body, html {
 .members h2 {
   margin-top: 10px; /* デフォルトの間隔を詰める */
 }
-
+.section-title {
+  margin: 60px 0 5px;
+}
+.members h2 {
+  margin-top: 5px;
+}
