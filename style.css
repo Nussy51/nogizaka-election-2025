@@ -203,3 +203,72 @@ body, html {
   margin-bottom: 10px; /* 下余白は適度に */
   padding-top: 0;     /* 念のため */
 }
+.vote-form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.vote-form-container label,
+.vote-form-container select,
+.vote-form-container textarea {
+  display: block;
+  width: 100%;
+  margin: 15px 0 5px;
+  font-size: 1rem;
+}
+
+.vote-form-container textarea {
+  resize: vertical;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.member-options {
+  margin: 20px 0;
+}
+
+.member-option label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.member-option input[type="radio"] {
+  transform: scale(1.2);
+}
+
+.member-option img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.member-option span {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background-color: #6b46c1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #553c9a;
+}
