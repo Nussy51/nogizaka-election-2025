@@ -1,80 +1,115 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
-  <title>乃木坂総選挙2025 投票</title>
-</head>
-<body>
-  <header>
-    <h1 class="page-title">乃木坂総選挙2025 投票フォーム</h1>
-  </header>
+<!-- 投票フォーム（期別選択→メンバー選択→推しポイント） -->
+<form id="voteForm">
+  <label for="generation">期生を選択:</label>
+  <select id="generation" name="generation" required>
+    <option value="">-- 選んでください --</option>
+    <option value="3rd">3期生</option>
+    <option value="4th">4期生</option>
+    <option value="5th">5期生</option>
+    <option value="6th">6期生</option>
+  </select>
 
-  <main class="vote-form-container">
-    <form id="voteForm">
-      <!-- 期の選択 -->
-      <label for="generation">期生を選択:</label>
-      <select id="generation" required>
-        <option value="">-- 選択してください --</option>
-        <option value="3期生">3期生</option>
-        <option value="4期生">4期生</option>
-        <option value="5期生">5期生</option>
-        <option value="6期生">6期生</option>
-      </select>
+  <div id="memberList" class="member-list"></div>
 
-      <!-- メンバー選択（例：3期生のみ表示）-->
-      <div id="memberOptions" class="member-options">
-        <!-- JavaScriptで動的に切り替える場合、ここはJSで変更されます -->
-        <p>期を選択してください。</p>
-      </div>
+  <label for="message">推しポイント:</label>
+  <textarea id="message" name="message" required placeholder="あなたの熱い想いを教えてください"></textarea>
 
-      <!-- 推しポイント -->
-      <label for="reason">推しポイント:</label>
-      <textarea id="reason" rows="4" required placeholder="ここに熱い想いをぶつけてください！"></textarea>
+  <button type="submit">投票する</button>
+</form>
 
-      <!-- 送信ボタン -->
-      <button type="submit" class="submit-btn">投票する</button>
-    </form>
-  </main>
+<script>
+const members = {
+  "3rd": [
+    { name: "伊藤理々杏", img: "IMG_0188.JPG" },
+    { name: "岩本蓮加", img: "IMG_0190.JPG" },
+    { name: "梅澤美波", img: "IMG_0191.JPG" },
+    { name: "久保史緒里", img: "IMG_0199.JPG" },
+    { name: "吉田綾乃クリスティー", img: "IMG_0212.JPG" }
+  ],
+  "4th": [
+    { name: "遠藤さくら", img: "IMG_0192.JPG" },
+    { name: "賀喜遥香", img: "IMG_0196.JPG" },
+    { name: "金川紗耶", img: "IMG_0197.JPG" },
+    { name: "黒見明香", img: "IMG_0200.JPG" },
+    { name: "佐藤璃果", img: "IMG_0201.JPG" },
+    { name: "柴田柚菜", img: "IMG_0202.JPG" },
+    { name: "田村真佑", img: "IMG_0204.JPG" },
+    { name: "筒井あやめ", img: "IMG_0205.JPG" },
+    { name: "林瑠奈", img: "IMG_0208.JPG" },
+    { name: "松尾美佑", img: "IMG_0209.JPG" },
+    { name: "矢久保美緒", img: "IMG_0210.JPG" },
+    { name: "弓木奈於", img: "IMG_0211.JPG" }
+  ],
+  "5th": [
+    { name: "五百城茉央", img: "IMG_0185.JPG" },
+    { name: "池田瑛紗", img: "IMG_0186.JPG" },
+    { name: "一ノ瀬美空", img: "IMG_0187.JPG" },
+    { name: "井上和", img: "IMG_0189.JPG" },
+    { name: "岡本姫奈", img: "IMG_0193.JPG" },
+    { name: "小川彩", img: "IMG_0194.JPG" },
+    { name: "奥田いろは", img: "IMG_0195.JPG" },
+    { name: "川﨑桜", img: "IMG_0198.JPG" },
+    { name: "菅原咲月", img: "IMG_0203.JPG" },
+    { name: "冨里奈央", img: "IMG_0206.JPG" },
+    { name: "中西アルノ", img: "IMG_0207.JPG" }
+  ],
+  "6th": [
+    { name: "愛宕心響", img: "IMG_0213.JPG" },
+    { name: "大越ひなの", img: "IMG_0214.JPG" },
+    { name: "小津玲奈", img: "IMG_0215.JPG" },
+    { name: "海邉朱莉", img: "IMG_0216.JPG" },
+    { name: "川端晃菜", img: "IMG_0217.JPG" },
+    { name: "鈴木佑捺", img: "IMG_0218.JPG" },
+    { name: "瀬戸口心月", img: "IMG_0219.JPG" },
+    { name: "長嶋凛桜", img: "IMG_0220.JPG" },
+    { name: "増田三莉音", img: "IMG_0221.JPG" },
+    { name: "森平麗心", img: "IMG_0222.JPG" },
+    { name: "矢田萌華", img: "IMG_0223.JPG" }
+  ]
+};
 
-  <script>
-    const members = {
-      "3期生": ["伊藤理々杏", "岩本蓮加", "梅澤美波", "久保史緒里", "吉田綾乃クリスティー"],
-      "4期生": ["遠藤さくら", "賀喜遥香", "金川紗耶", "黒見明香", "佐藤璃果", "柴田柚菜", "田村真佑", "筒井あやめ", "林瑠奈", "松尾美佑", "矢久保美緒", "弓木奈於"],
-      "5期生": ["五百城茉央", "池田瑛紗", "一ノ瀬美空", "井上和", "岡本姫奈", "小川彩", "奥田いろは", "川﨑桜", "菅原咲月", "冨里奈央", "中西アルノ"],
-      "6期生": ["愛宕心響", "大越ひなの", "小津玲奈", "海邉朱莉", "川端晃菜", "鈴木佑捺", "瀬戸口心月", "長嶋凛桜", "増田三莉音", "森平麗心", "矢田萌華"]
-    };
+document.getElementById("generation").addEventListener("change", function() {
+  const selected = this.value;
+  const container = document.getElementById("memberList");
+  container.innerHTML = "";
 
-    const generationSelect = document.getElementById("generation");
-    const memberOptions = document.getElementById("memberOptions");
+  if (members[selected]) {
+    members[selected].forEach((member, index) => {
+      const wrapper = document.createElement("label");
+      wrapper.style.display = "flex";
+      wrapper.style.alignItems = "center";
+      wrapper.style.margin = "10px 0";
 
-    generationSelect.addEventListener("change", () => {
-      const selectedGen = generationSelect.value;
-      memberOptions.innerHTML = "";
+      const radio = document.createElement("input");
+      radio.type = "radio";
+      radio.name = "member";
+      radio.value = member.name;
+      radio.required = true;
+      radio.style.marginRight = "10px";
 
-      if (members[selectedGen]) {
-        members[selectedGen].forEach((name, index) => {
-          const div = document.createElement("div");
-          div.className = "member-option";
-          div.innerHTML = `
-            <label>
-              <input type="radio" name="member" value="${name}" required />
-              <img src="images/members/IMG_${String(188 + index).padStart(4, '0')}.JPG" alt="${name}" />
-              <span>${name}</span>
-            </label>
-          `;
-          memberOptions.appendChild(div);
-        });
-      }
+      const img = document.createElement("img");
+      img.src = `images/members/${member.img}`;
+      img.alt = member.name;
+      img.style.height = "60px";
+      img.style.marginRight = "10px";
+
+      const name = document.createElement("span");
+      name.textContent = member.name;
+
+      wrapper.appendChild(radio);
+      wrapper.appendChild(img);
+      wrapper.appendChild(name);
+
+      container.appendChild(wrapper);
     });
+  }
+});
 
-    document.getElementById("voteForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      alert("投票が完了しました！ご協力ありがとうございます！");
-      this.reset();
-      memberOptions.innerHTML = "<p>期を選択してください。</p>";
-    });
-  </script>
-</body>
-</html>
+document.getElementById("voteForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  alert("投票ありがとうございました！");
+  this.reset();
+  document.getElementById("memberList").innerHTML = "";
+});
+</script>
+
