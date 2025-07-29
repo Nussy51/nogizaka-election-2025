@@ -272,13 +272,3 @@ body, html {
 .submit-btn:hover {
   background-color: #553c9a;
 }
-form {
-  font-size: 1rem;
-}
-
-label,
-select,
-input,
-textarea {
-  font-size: 1rem;
-}
