@@ -1,96 +1,80 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>乃木坂総選挙2025 投票フォーム</title>
-<style>
-  body { font-family: Arial, sans-serif; padding: 20px; }
-  label { display: block; margin-top: 10px; }
-  .members-list { margin-top: 10px; }
-  button { margin-top: 20px; padding: 10px 20px; font-size: 1rem; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <title>乃木坂総選挙2025 投票</title>
 </head>
 <body>
+  <header>
+    <h1 class="page-title">乃木坂総選挙2025 投票フォーム</h1>
+  </header>
 
-<h1>乃木坂総選挙2025 投票フォーム</h1>
+  <main class="vote-form-container">
+    <form id="voteForm">
+      <!-- 期の選択 -->
+      <label for="generation">期生を選択:</label>
+      <select id="generation" required>
+        <option value="">-- 選択してください --</option>
+        <option value="3期生">3期生</option>
+        <option value="4期生">4期生</option>
+        <option value="5期生">5期生</option>
+        <option value="6期生">6期生</option>
+      </select>
 
-<form id="voteForm">
+      <!-- メンバー選択（例：3期生のみ表示）-->
+      <div id="memberOptions" class="member-options">
+        <!-- JavaScriptで動的に切り替える場合、ここはJSで変更されます -->
+        <p>期を選択してください。</p>
+      </div>
 
-  <label for="generation">期を選択してください:</label>
-  <select id="generation" name="generation" required>
-    <option value="" disabled selected>選択してください</option>
-    <option value="3期生">3期生</option>
-    <option value="4期生">4期生</option>
-    <option value="5期生">5期生</option>
-    <option value="6期生">6期生</option>
-  </select>
+      <!-- 推しポイント -->
+      <label for="reason">推しポイント:</label>
+      <textarea id="reason" rows="4" required placeholder="ここに熱い想いをぶつけてください！"></textarea>
 
-  <div class="members-list" id="membersList"></div>
+      <!-- 送信ボタン -->
+      <button type="submit" class="submit-btn">投票する</button>
+    </form>
+  </main>
 
-  <label for="points">推しポイント（必須）:</label>
-  <textarea id="points" name="points" rows="4" cols="50" required></textarea>
+  <script>
+    const members = {
+      "3期生": ["伊藤理々杏", "岩本蓮加", "梅澤美波", "久保史緒里", "吉田綾乃クリスティー"],
+      "4期生": ["遠藤さくら", "賀喜遥香", "金川紗耶", "黒見明香", "佐藤璃果", "柴田柚菜", "田村真佑", "筒井あやめ", "林瑠奈", "松尾美佑", "矢久保美緒", "弓木奈於"],
+      "5期生": ["五百城茉央", "池田瑛紗", "一ノ瀬美空", "井上和", "岡本姫奈", "小川彩", "奥田いろは", "川﨑桜", "菅原咲月", "冨里奈央", "中西アルノ"],
+      "6期生": ["愛宕心響", "大越ひなの", "小津玲奈", "海邉朱莉", "川端晃菜", "鈴木佑捺", "瀬戸口心月", "長嶋凛桜", "増田三莉音", "森平麗心", "矢田萌華"]
+    };
 
-  <button type="submit">投票する</button>
+    const generationSelect = document.getElementById("generation");
+    const memberOptions = document.getElementById("memberOptions");
 
-</form>
+    generationSelect.addEventListener("change", () => {
+      const selectedGen = generationSelect.value;
+      memberOptions.innerHTML = "";
 
-<script>
-// 各期のメンバー配列（表示用）
-const membersByGeneration = {
-  "3期生": ["伊藤理々杏", "岩本蓮加", "梅澤美波", "久保史緒里", "吉田綾乃クリスティー"],
-  "4期生": ["遠藤さくら", "賀喜遥香", "金川紗耶", "黒見明香", "佐藤璃果", "柴田柚菜", "田村真佑", "筒井あやめ", "林瑠奈", "松尾美佑", "矢久保美緒", "弓木奈於"],
-  "5期生": ["五百城茉央", "池田瑛紗", "一ノ瀬美空", "井上和", "岡本姫奈", "小川彩", "奥田いろは", "川﨑桜", "菅原咲月", "冨里奈央", "中西アルノ"],
-  "6期生": ["愛宕心響", "大越ひなの", "小津玲奈", "海邉朱莉", "川端晃菜", "鈴木佑捺", "瀬戸口心月", "長嶋凛桜", "増田三莉音", "森平麗心", "矢田萌華"]
-};
+      if (members[selectedGen]) {
+        members[selectedGen].forEach((name, index) => {
+          const div = document.createElement("div");
+          div.className = "member-option";
+          div.innerHTML = `
+            <label>
+              <input type="radio" name="member" value="${name}" required />
+              <img src="images/members/IMG_${String(188 + index).padStart(4, '0')}.JPG" alt="${name}" />
+              <span>${name}</span>
+            </label>
+          `;
+          memberOptions.appendChild(div);
+        });
+      }
+    });
 
-const generationSelect = document.getElementById("generation");
-const membersListDiv = document.getElementById("membersList");
-
-generationSelect.addEventListener("change", () => {
-  const selectedGen = generationSelect.value;
-  membersListDiv.innerHTML = ""; // クリア
-
-  if (!selectedGen) return;
-
-  membersByGeneration[selectedGen].forEach((member, index) => {
-    const radio = document.createElement("input");
-    radio.type = "radio";
-    radio.name = "member";
-    radio.id = `member_${index}`;
-    radio.value = member;
-    radio.required = true;
-
-    const label = document.createElement("label");
-    label.htmlFor = radio.id;
-    label.textContent = member;
-
-    membersListDiv.appendChild(radio);
-    membersListDiv.appendChild(label);
-  });
-});
-
-// フォーム送信処理
-document.getElementById("voteForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const formData = new FormData(e.target);
-  const generation = formData.get("generation");
-  const member = formData.get("member");
-  const points = formData.get("points");
-
-  if (!generation || !member || !points) {
-    alert("全ての項目を入力してください");
-    return;
-  }
-
-  // ここに送信処理を追加予定
-  alert(`投票ありがとうございます！\n期: ${generation}\nメンバー: ${member}\n推しポイント: ${points}`);
-
-  e.target.reset();
-  membersListDiv.innerHTML = "";
-});
-</script>
-
+    document.getElementById("voteForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("投票が完了しました！ご協力ありがとうございます！");
+      this.reset();
+      memberOptions.innerHTML = "<p>期を選択してください。</p>";
+    });
+  </script>
 </body>
 </html>
