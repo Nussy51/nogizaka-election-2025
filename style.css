@@ -272,3 +272,60 @@ body, html {
 .submit-btn:hover {
   background-color: #553c9a;
 }
+.vote-form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: sans-serif;
+}
+
+.vote-form-container label,
+.vote-form-container select,
+.vote-form-container textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.vote-form-container textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  background-color: #6b46c1;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.submit-btn:hover {
+  background-color: #553c9a;
+}
+
+.member-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.member-option {
+  width: calc(50% - 8px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.member-option img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
