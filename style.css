@@ -533,4 +533,11 @@ body, html {
     object-fit: contain !important;
   }
 }
+.member-image {
+  width: 100%;
+  height: auto;
+  max-width: 120px; /* 必要なら調整 */
+  display: block;
+  margin: 0 auto;
+}
 
