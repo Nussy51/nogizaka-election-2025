@@ -205,41 +205,69 @@
       this.reset();
       memberContainer.innerHTML = "";
     });
-  </script>
-  document.getElementById("voteForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+<script>
+  const members = {
+    /* 省略：membersデータはそのまま */
+  };
 
-  const generation = document.getElementById("generation").value;
-  const member = document.querySelector("input[name='member']:checked");
-  const reason = document.getElementById("reason").value.trim();
+  const generationSelect = document.getElementById("generation");
+  const memberContainer = document.getElementById("memberContainer");
 
-  if (!generation || !member || !reason) {
-    alert("すべての項目を入力してください。");
-    return;
-  }
+  generationSelect.addEventListener("change", () => {
+    const selectedGen = generationSelect.value;
+    memberContainer.innerHTML = "";
 
-  const payload = new URLSearchParams();
-  payload.append('generation', generation);
-  payload.append('member', member.value);
-  payload.append('reason', reason);
+    if (members[selectedGen]) {
+      members[selectedGen].forEach((member) => {
+        const memberDiv = document.createElement("label");
+        memberDiv.className = "member-item";
 
-  fetch('https://script.google.com/macros/s/AKfycbxX5OCX3CBvi4cylcOaU2AZXznrc3Fxk2okAxabj--XTuGLS7fdxhMhEe1dKJyhRh_m/exec', {
-    method: 'POST',
-    body: payload,
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-  })
-  .then(res => res.text())
-  .then(text => {
-    if (text === 'success') {
-      alert("投票ありがとうございました！");
-      this.reset();
-      document.getElementById("memberContainer").innerHTML = "";
-    } else {
-      alert("送信に失敗しました。時間を置いて再度お試しください。");
+        memberDiv.innerHTML = `
+          <input type="radio" name="member" value="${member.name}" required />
+          <img src="${member.img}" alt="${member.name}">
+          <span class="member-name">${member.name}</span>
+        `;
+
+        memberContainer.appendChild(memberDiv);
+      });
     }
-  })
-  .catch(() => alert("通信エラーが発生しました。"));
-});
+  });
+
+  document.getElementById("voteForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const generation = document.getElementById("generation").value;
+    const member = document.querySelector("input[name='member']:checked");
+    const reason = document.getElementById("reason").value.trim();
+
+    if (!generation || !member || !reason) {
+      alert("すべての項目を入力してください。");
+      return;
+    }
+
+    const payload = new URLSearchParams();
+    payload.append('generation', generation);
+    payload.append('member', member.value);
+    payload.append('reason', reason);
+
+    fetch('https://script.google.com/macros/s/AKfycbxX5OCX3CBvi4cylcOaU2AZXznrc3Fxk2okAxabj--XTuGLS7fdxhMhEe1dKJyhRh_m/exec', {
+      method: 'POST',
+      body: payload,
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+    })
+    .then(res => res.text())
+    .then(text => {
+      if (text === 'success') {
+        alert("投票ありがとうございました！");
+        this.reset();
+        memberContainer.innerHTML = "";
+      } else {
+        alert("送信に失敗しました。時間を置いて再度お試しください。");
+      }
+    })
+    .catch(() => alert("通信エラーが発生しました。"));
+  });
+</script>
 </body>
 </html>
 
