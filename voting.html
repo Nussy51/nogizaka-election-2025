@@ -118,96 +118,54 @@
   </form>
 
   <script>
-    const members = {
-      "3期生": [
-        { name: "伊藤理々杏", img: "images/members/IMG_0188.JPG" },
-        { name: "岩本蓮加", img: "images/members/IMG_0190.JPG" },
-        { name: "梅澤美波", img: "images/members/IMG_0191.JPG" },
-        { name: "久保史緒里", img: "images/members/IMG_0199.JPG" },
-        { name: "吉田綾乃クリスティー", img: "images/members/IMG_0212.JPG" }
-      ],
-      "4期生": [
-        { name: "遠藤さくら", img: "images/members/IMG_0192.JPG" },
-        { name: "賀喜遥香", img: "images/members/IMG_0196.JPG" },
-        { name: "金川紗耶", img: "images/members/IMG_0197.JPG" },
-        { name: "黒見明香", img: "images/members/IMG_0200.JPG" },
-        { name: "佐藤璃果", img: "images/members/IMG_0201.JPG" },
-        { name: "柴田柚菜", img: "images/members/IMG_0202.JPG" },
-        { name: "田村真佑", img: "images/members/IMG_0204.JPG" },
-        { name: "筒井あやめ", img: "images/members/IMG_0205.JPG" },
-        { name: "林瑠奈", img: "images/members/IMG_0208.JPG" },
-        { name: "松尾美佑", img: "images/members/IMG_0209.JPG" },
-        { name: "矢久保美緒", img: "images/members/IMG_0210.JPG" },
-        { name: "弓木奈於", img: "images/members/IMG_0211.JPG" }
-      ],
-      "5期生": [
-        { name: "五百城茉央", img: "images/members/IMG_0185.JPG" },
-        { name: "池田瑛紗", img: "images/members/IMG_0186.JPG" },
-        { name: "一ノ瀬美空", img: "images/members/IMG_0187.JPG" },
-        { name: "井上和", img: "images/members/IMG_0189.JPG" },
-        { name: "岡本姫奈", img: "images/members/IMG_0193.JPG" },
-        { name: "小川彩", img: "images/members/IMG_0194.JPG" },
-        { name: "奥田いろは", img: "images/members/IMG_0195.JPG" },
-        { name: "川﨑桜", img: "images/members/IMG_0198.JPG" },
-        { name: "菅原咲月", img: "images/members/IMG_0203.JPG" },
-        { name: "冨里奈央", img: "images/members/IMG_0206.JPG" },
-        { name: "中西アルノ", img: "images/members/IMG_0207.JPG" }
-      ],
-      "6期生": [
-        { name: "愛宕心響", img: "images/members/IMG_0213.JPG" },
-        { name: "大越ひなの", img: "images/members/IMG_0214.JPG" },
-        { name: "小津玲奈", img: "images/members/IMG_0215.JPG" },
-        { name: "海邉朱莉", img: "images/members/IMG_0216.JPG" },
-        { name: "川端晃菜", img: "images/members/IMG_0217.JPG" },
-        { name: "鈴木佑捺", img: "images/members/IMG_0218.JPG" },
-        { name: "瀬戸口心月", img: "images/members/IMG_0219.JPG" },
-        { name: "長嶋凛桜", img: "images/members/IMG_0220.JPG" },
-        { name: "増田三莉音", img: "images/members/IMG_0221.JPG" },
-        { name: "森平麗心", img: "images/members/IMG_0222.JPG" },
-        { name: "矢田萌華", img: "images/members/IMG_0223.JPG" }
-      ]
-    };
-
-    const generationSelect = document.getElementById("generation");
-    const memberContainer = document.getElementById("memberContainer");
-
-    generationSelect.addEventListener("change", () => {
-      const selectedGen = generationSelect.value;
-      memberContainer.innerHTML = "";
-
-      if (members[selectedGen]) {
-        members[selectedGen].forEach((member) => {
-          const memberDiv = document.createElement("label");
-          memberDiv.className = "member-item";
-
-          memberDiv.innerHTML = 
-            <input type="radio" name="member" value="${member.name}" required />
-            <img src="${member.img}" alt="${member.name}">
-            <span class="member-name">${member.name}</span>
-          ;
-
-          memberContainer.appendChild(memberDiv);
-        });
-      }
-    });
-
-    document.getElementById("voteForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const member = document.querySelector("input[name='member']:checked");
-      const reason = document.getElementById("reason").value.trim();
-
-      if (!member || !reason) {
-        alert("すべての項目を入力してください。");
-        return;
-      }
-
-      alert("投票ありがとうございました！");
-      this.reset();
-      memberContainer.innerHTML = "";
-    });
-<script>
   const members = {
-    /* 省略：membersデータはそのまま */
+    "3期生": [
+      { name: "伊藤理々杏", img: "images/members/IMG_0188.JPG" },
+      { name: "岩本蓮加", img: "images/members/IMG_0190.JPG" },
+      { name: "梅澤美波", img: "images/members/IMG_0191.JPG" },
+      { name: "久保史緒里", img: "images/members/IMG_0199.JPG" },
+      { name: "吉田綾乃クリスティー", img: "images/members/IMG_0212.JPG" }
+    ],
+    "4期生": [
+      { name: "遠藤さくら", img: "images/members/IMG_0192.JPG" },
+      { name: "賀喜遥香", img: "images/members/IMG_0196.JPG" },
+      { name: "金川紗耶", img: "images/members/IMG_0197.JPG" },
+      { name: "黒見明香", img: "images/members/IMG_0200.JPG" },
+      { name: "佐藤璃果", img: "images/members/IMG_0201.JPG" },
+      { name: "柴田柚菜", img: "images/members/IMG_0202.JPG" },
+      { name: "田村真佑", img: "images/members/IMG_0204.JPG" },
+      { name: "筒井あやめ", img: "images/members/IMG_0205.JPG" },
+      { name: "林瑠奈", img: "images/members/IMG_0208.JPG" },
+      { name: "松尾美佑", img: "images/members/IMG_0209.JPG" },
+      { name: "矢久保美緒", img: "images/members/IMG_0210.JPG" },
+      { name: "弓木奈於", img: "images/members/IMG_0211.JPG" }
+    ],
+    "5期生": [
+      { name: "五百城茉央", img: "images/members/IMG_0185.JPG" },
+      { name: "池田瑛紗", img: "images/members/IMG_0186.JPG" },
+      { name: "一ノ瀬美空", img: "images/members/IMG_0187.JPG" },
+      { name: "井上和", img: "images/members/IMG_0189.JPG" },
+      { name: "岡本姫奈", img: "images/members/IMG_0193.JPG" },
+      { name: "小川彩", img: "images/members/IMG_0194.JPG" },
+      { name: "奥田いろは", img: "images/members/IMG_0195.JPG" },
+      { name: "川﨑桜", img: "images/members/IMG_0198.JPG" },
+      { name: "菅原咲月", img: "images/members/IMG_0203.JPG" },
+      { name: "冨里奈央", img: "images/members/IMG_0206.JPG" },
+      { name: "中西アルノ", img: "images/members/IMG_0207.JPG" }
+    ],
+    "6期生": [
+      { name: "愛宕心響", img: "images/members/IMG_0213.JPG" },
+      { name: "大越ひなの", img: "images/members/IMG_0214.JPG" },
+      { name: "小津玲奈", img: "images/members/IMG_0215.JPG" },
+      { name: "海邉朱莉", img: "images/members/IMG_0216.JPG" },
+      { name: "川端晃菜", img: "images/members/IMG_0217.JPG" },
+      { name: "鈴木佑捺", img: "images/members/IMG_0218.JPG" },
+      { name: "瀬戸口心月", img: "images/members/IMG_0219.JPG" },
+      { name: "長嶋凛桜", img: "images/members/IMG_0220.JPG" },
+      { name: "増田三莉音", img: "images/members/IMG_0221.JPG" },
+      { name: "森平麗心", img: "images/members/IMG_0222.JPG" },
+      { name: "矢田萌華", img: "images/members/IMG_0223.JPG" }
+    ]
   };
 
   const generationSelect = document.getElementById("generation");
@@ -268,5 +226,6 @@
     .catch(() => alert("通信エラーが発生しました。"));
   });
 </script>
+
 </body>
 </html>
