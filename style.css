@@ -540,4 +540,32 @@ body, html {
   display: block;
   margin: 0 auto;
 }
+/* ベース：画像は親の幅にフィット、高さは自動 */
+.member img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 8px auto;
+}
+
+/* スマホ画面（600px以下）の場合に、親の幅を100%にして縦並びに */
+@media (max-width: 600px) {
+  .member-row {
+    flex-direction: column;  /* 縦積み */
+    align-items: center;     /* 中央寄せ */
+    gap: 15px;
+    width: 100%;
+  }
+  .member {
+    width: 100%;  /* 親コンテナ幅いっぱい */
+    max-width: 320px; /* 必要に応じて最大幅設定 */
+    text-align: center;
+  }
+  .member img {
+    width: 100%; /* 画像を親の幅いっぱいに */
+    height: auto;
+    object-fit: contain;
+  }
+}
 
