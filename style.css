@@ -518,4 +518,19 @@ body, html {
     height: auto;          /* 高さは自動調整 */
   }
 }
+@media (max-width: 600px) {
+  .member-row {
+    flex-direction: column !important;
+    gap: 15px !important;
+  }
+  .member {
+    max-width: 100% !important;
+    flex: none !important;
+  }
+  .member img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+}
 
