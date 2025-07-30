@@ -407,4 +407,57 @@ body, html {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+  .member-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .member {
+    width: 45%;
+    margin: 5px;
+    text-align: center;
+  }
+
+  .member img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .overlay h2 {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+
+  .vote-container {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .btn-vote {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    display: inline-block;
+  }
+
+  .overview {
+    padding: 0 10px;
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    text-align: center;
+  }
+}
 
