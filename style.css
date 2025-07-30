@@ -503,4 +503,19 @@ body, html {
 }
 
 /* --- ここまで --- */
+/* 縦画面スマホ用の調整 */
+@media (max-width: 600px) {
+  .member-row {
+    flex-direction: column; /* 縦積みに */
+    gap: 15px;
+  }
+  .member {
+    max-width: 100%;       /* 幅100% */
+    flex: none;            /* flex-growやshrinkを無効化 */
+  }
+  .member img {
+    width: 100%;           /* 横幅いっぱいに */
+    height: auto;          /* 高さは自動調整 */
+  }
+}
 
