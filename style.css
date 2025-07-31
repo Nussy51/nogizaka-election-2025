@@ -34,15 +34,13 @@ body, html {
 }
 
 .overlay {
-  position: relative;  /* ← absolute から relative に変更 */
-  top: auto;
-  left: auto;
-  transform: none;     /* 中央揃えをやめる */
-  margin: 2rem auto;
-  max-width: 90%;
-  color: white;
-  text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
+  position: absolute;
+  top: 20%; /* ← 上からの位置（画像全体の高さに対する%）を調整 */
+  left: 50%;
+  transform: translateX(-50%); /* 中央揃え（Y方向の調整は不要） */
   text-align: center;
+  color: white;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
   font-family: 'Anton', sans-serif;
   font-size: 2.5rem;
   line-height: 1.2;
@@ -50,6 +48,7 @@ body, html {
   z-index: 10;
   pointer-events: none;
   user-select: none;
+  max-width: 90%;
 }
 
 .overlay h2 {
