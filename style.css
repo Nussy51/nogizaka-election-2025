@@ -34,17 +34,19 @@ body, html {
 }
 
 .overlay {
-  position: absolute;  /* fixed ではなく absolute */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;  /* ← absolute から relative に変更 */
+  top: auto;
+  left: auto;
+  transform: none;     /* 中央揃えをやめる */
+  margin: 2rem auto;
+  max-width: 90%;
   color: white;
   text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
   text-align: center;
   font-family: 'Anton', sans-serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   line-height: 1.2;
-  white-space: nowrap;
+  white-space: normal;
   z-index: 10;
   pointer-events: none;
   user-select: none;
