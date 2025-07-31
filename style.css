@@ -34,21 +34,16 @@ body, html {
 }
 
 .overlay {
-  position: absolute;
-  top: 20%; /* ← 上からの位置（画像全体の高さに対する%）を調整 */
-  left: 50%;
-  transform: translateX(-50%); /* 中央揃え（Y方向の調整は不要） */
+  position: relative;
+  top: 30px; /* ← 画像の上からの位置を調整 */
   text-align: center;
   color: white;
-  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  z-index: 2;
   font-family: 'Anton', sans-serif;
   font-size: 2.5rem;
   line-height: 1.2;
-  white-space: normal;
-  z-index: 10;
-  pointer-events: none;
-  user-select: none;
-  max-width: 90%;
+  text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
 }
 
 .overlay h2 {
