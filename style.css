@@ -427,4 +427,21 @@ body, html {
   margin: 0 auto 8px auto;
 }
 
+.catchcopy {
+  position: absolute;
+  top: 25%;  /* 画像の上部3分の1くらいの位置 */
+  left: 50%;
+  transform: translate(-50%, -25%);
+  color: white;
+  font-family: 'Anton', sans-serif;
+  font-size: 3rem;  /* サイズ調整はここで */
+  line-height: 1.4;
+  text-align: center;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  width: 90%;
+  pointer-events: none;
+  user-select: none;
+}
+
 
