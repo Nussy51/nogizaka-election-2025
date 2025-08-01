@@ -340,9 +340,6 @@ body, html {
     margin-top: 30px;
     text-align: center;
   }
-}
-
-/* --- ここからスマホ対応のレスポンシブ調整 --- */
 
 .member-row {
   display: flex;
@@ -400,4 +397,26 @@ body, html {
   user-select: none;
 }
 
+/* ①スマホ用メディアクエリは全部コメントアウト */
+
+/* ②.hero 高さ固定 */
+.hero {
+  position: relative;
+  height: 900px;
+  background: url('https://suganabejoya.github.io/nogizaka-election-2025/images/main.jpg') center center/cover no-repeat;
+  background-size: cover;
+  background-position: center center;
+  z-index: 1;
+}
+
+/* ③横スクロール許可 */
+body, html {
+  overflow-x: auto;
+}
+
+/* ⑤.member幅固定 */
+.member {
+  width: 150px;
+  font-size: 0.9rem;
+}
 
