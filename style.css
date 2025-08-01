@@ -361,3 +361,8 @@ html {
     height: 60vh !important;  /* スマホ画面に合わせて高さ調整 */
   }
 }
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
