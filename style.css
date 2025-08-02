@@ -1,91 +1,81 @@
-/* 全体の基本設定 */
+/* 全体に適用するスタイル */
 body {
-  font-family: 'Arial', sans-serif;
   margin: 0;
-  padding: 0;
-  background-color: #f8f8f8;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #fff;
   color: #333;
-  min-width: 1024px; /* PCと同じ見た目を維持するため、最小幅を強制 */
 }
 
-/* ヘッダー部分 */
-header {
-  background-image: url('images/bg.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 80px 0;
+/* トップ画像（背景） */
+.hero {
+  width: 100%;
+  height: 100vh;
+  background-image: url('images/hero.jpg'); /* 実際の画像パスに変更してね */
+  background-size: contain; /* トリミングせず縦横比を維持して全体表示 */
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-color: #000; /* 画像外周に背景色が出る場合の処理 */
+}
+
+/* キャッチコピーなどのテキストオーバーレイ */
+.hero-text {
+  position: absolute;
+  top: 50px;
+  width: 100%;
   text-align: center;
-}
-
-header h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-header p {
-  font-size: 24px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-/* ボタン */
-.vote-button {
-  display: inline-block;
-  background-color: #ff69b4;
   color: white;
-  padding: 14px 28px;
-  margin-top: 20px;
-  border-radius: 30px;
-  font-size: 20px;
-  text-decoration: none;
-}
-
-/* セクション全体の余白と見た目 */
-section {
-  padding: 60px 100px;
-  background-color: white;
-}
-
-/* メンバー一覧：期ごとの見出し */
-.generation-title {
   font-size: 32px;
-  margin-bottom: 30px;
-  text-align: center;
-  color: #444;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* メンバーのグリッド配置 */
+/* 各セクションの共通スタイル */
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* メンバー一覧（カード形式） */
 .members {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 24px;
-  justify-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
-/* メンバーカード */
 .member {
+  width: 150px;
   text-align: center;
 }
 
 .member img {
-  width: 160px;
-  height: 160px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
   object-fit: cover;
-  border-radius: 12px;
-  border: 2px solid #ddd;
 }
 
 .member-name {
-  margin-top: 10px;
+  margin-top: 8px;
   font-size: 16px;
 }
 
-/* フッター */
-footer {
-  text-align: center;
-  padding: 30px 0;
-  background-color: #222;
-  color: white;
-  font-size: 14px;
+/* メディアクエリ（スマホでも崩れないように） */
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 24px;
+    top: 30px;
+  }
+
+  .member {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .member {
+    width: 100%;
+  }
 }
