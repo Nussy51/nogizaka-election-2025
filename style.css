@@ -1,61 +1,119 @@
-/* 全体の余白と中央寄せ */
+/* ベース全体設定 */
 body {
   margin: 0;
-  padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #fff;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* トップの背景セクション */
+.header {
+  position: relative;
   text-align: center;
+  color: white;
 }
 
-/* トップ画像（背景やバナー） */
-.top-image {
-  width: 100%;
-  max-height: 300px;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
-
-/* セクションごとの見出し */
-h2 {
-  font-size: 24px;
-  margin-top: 40px;
-  margin-bottom: 20px;
-}
-
-/* メンバー一覧全体を中央寄せ */
-.members {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 0 20px;
-}
-
-/* 各メンバーの画像＋名前ボックス */
-.member {
-  width: 120px;
-  text-align: center;
-}
-
-/* メンバー画像 */
-.member img {
+.header img {
   width: 100%;
   height: auto;
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  display: block;
 }
 
-/* メンバー名前 */
+.header .overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  font-size: 2.2rem;
+  padding: 1rem;
+}
+
+/* 概要・ボタンエリア */
+.section {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: white;
+}
+
+.section h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.button {
+  background-color: #800080;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #a020f0;
+}
+
+/* メンバー表示エリア */
+.members-section {
+  padding: 40px 20px;
+  background-color: #fff;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+  justify-items: center;
+}
+
+.member-card {
+  text-align: center;
+}
+
+.member-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+}
+
 .member-name {
   margin-top: 8px;
-  font-size: 14px;
+  font-size: 1rem;
 }
 
-/* 小さい画面でも同じように表示されるようにする（レスポンシブ最小限） */
+/* セクションタイトル */
+.members-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #800080;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+/* スマホ最適化 */
 @media (max-width: 600px) {
-  .member {
-    width: 100px;
+  .header .overlay {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  .button {
+    font-size: 1rem;
+    padding: 10px 18px;
+  }
+
+  .members-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .member-card img {
+    aspect-ratio: 3 / 4;
   }
 }
