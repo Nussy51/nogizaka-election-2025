@@ -29,7 +29,7 @@ body, html {
 /* ヒーローセクション */
 .hero {
   position: relative;
-  height: 900px; /* 固定高さ */
+  height: 100vh; /* ビューポートの高さに対応 */
   background: url('https://suganabejoya.github.io/nogizaka-election-2025/images/main.jpg') center center/cover no-repeat;
   background-size: cover;
   background-position: center center;
@@ -365,4 +365,9 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+.catchcopy {
+  font-size: 2rem !important;
+  top: 20% !important;
+  transform: translate(-50%, -20%) !important;
 }
