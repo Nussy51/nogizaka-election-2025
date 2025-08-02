@@ -1,81 +1,61 @@
-/* 全体に適用するスタイル */
+/* 全体の余白と中央寄せ */
 body {
   margin: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 0;
+  font-family: Arial, sans-serif;
   background-color: #fff;
-  color: #333;
-}
-
-/* トップ画像（背景） */
-.hero {
-  width: 100%;
-  height: 100vh;
-  background-image: url('images/hero.jpg'); /* 実際の画像パスに変更してね */
-  background-size: contain; /* トリミングせず縦横比を維持して全体表示 */
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-color: #000; /* 画像外周に背景色が出る場合の処理 */
-}
-
-/* キャッチコピーなどのテキストオーバーレイ */
-.hero-text {
-  position: absolute;
-  top: 50px;
-  width: 100%;
   text-align: center;
-  color: white;
-  font-size: 32px;
-  font-weight: bold;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* 各セクションの共通スタイル */
-.section {
-  max-width: 1200px;
+/* トップ画像（背景やバナー） */
+.top-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  display: block;
   margin: 0 auto;
-  padding: 40px 20px;
 }
 
-/* メンバー一覧（カード形式） */
+/* セクションごとの見出し */
+h2 {
+  font-size: 24px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+/* メンバー一覧全体を中央寄せ */
 .members {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  padding: 0 20px;
 }
 
+/* 各メンバーの画像＋名前ボックス */
 .member {
-  width: 150px;
+  width: 120px;
   text-align: center;
 }
 
+/* メンバー画像 */
 .member img {
   width: 100%;
   height: auto;
+  object-fit: contain;
   border-radius: 8px;
-  display: block;
-  object-fit: cover;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 }
 
+/* メンバー名前 */
 .member-name {
   margin-top: 8px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
-/* メディアクエリ（スマホでも崩れないように） */
-@media (max-width: 768px) {
-  .hero-text {
-    font-size: 24px;
-    top: 30px;
-  }
-
+/* 小さい画面でも同じように表示されるようにする（レスポンシブ最小限） */
+@media (max-width: 600px) {
   .member {
-    width: 45%;
-  }
-}
-
-@media (max-width: 480px) {
-  .member {
-    width: 100%;
+    width: 100px;
   }
 }
