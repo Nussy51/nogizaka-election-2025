@@ -25,17 +25,21 @@ body, html {
   position: relative;
   z-index: 20;
 }
-
-/* ヒーローセクション */
+/* 背景画像の表示設定 */
 .hero {
-  position: relative;
-  height: 100vh; /* ビューポートの高さに対応 */
-  background: url('https://suganabejoya.github.io/nogizaka-election-2025/images/main.jpg') center center/cover no-repeat;
+  background-image: url('https://suganabejoya.github.io/nogizaka-election-2025/images/main.jpg'); /* 画像パスは適宜修正 */
   background-size: cover;
-  background-position: center center;
-  z-index: 1;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* 高さを画面いっぱいに */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  color: white;
 }
-
 /* オーバーレイテキスト */
 .overlay {
   position: relative;
@@ -357,8 +361,8 @@ html {
     margin: 5px auto !important;
   }
 
-  .hero {
-    height: 60vh !important;  /* スマホ画面に合わせて高さ調整 */
+ .hero {
+    background-position: top center; /* スマホでは上寄りに調整 */
   }
 }
 img {
