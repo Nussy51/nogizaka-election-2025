@@ -363,6 +363,7 @@ html {
 
  .hero {
     background-position: top center; /* スマホでは上寄りに調整 */
+    background-size: contain !important; /* ← ここを追加 */
   }
 }
 img {
