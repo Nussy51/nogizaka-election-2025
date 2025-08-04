@@ -384,9 +384,9 @@ img {
   height: auto;
   display: block;
 }
-  .catchcopy {
-    font-size: 1.8rem !important;
+ .catchcopy {
+    font-size: 2.4rem !important;  /* ← ここもUP */
     top: 20% !important;
     transform: translate(-50%, -20%) !important;
-    line-height: 1.5;
+    line-height: 1.4;
   }
