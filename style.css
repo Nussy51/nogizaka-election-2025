@@ -16,17 +16,19 @@ body, html {
 
 .catchcopy {
   position: absolute;
-  top: 25%;
+  top: 20%;
   left: 50%;
-  transform: translate(-50%, -25%);
+  transform: translate(-50%, -20%);
   color: white;
   font-family: 'Anton', sans-serif;
-  font-size: 3.5rem; /* ← ここをUP */
-  line-height: 1.5;
+  font-size: 5rem; /* ← かなり大きめに */
+  line-height: 1.4;
   text-align: center;
-  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
   z-index: 2;
-  width: 90%;
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 1rem;
   pointer-events: none;
   user-select: none;
 }
@@ -385,8 +387,8 @@ img {
   display: block;
 }
  .catchcopy {
-    font-size: 2.4rem !important;  /* ← ここもUP */
-    top: 20% !important;
-    transform: translate(-50%, -20%) !important;
-    line-height: 1.4;
+    font-size: 3.2rem !important;  /* ← スマホでも強調 */
+    top: 18% !important;
+    transform: translate(-50%, -18%) !important;
+    line-height: 1.3;
   }
