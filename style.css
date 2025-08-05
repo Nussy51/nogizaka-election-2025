@@ -75,6 +75,14 @@ body, html {
   margin: 0;
 }
 
+.vote-period {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 25px 0;
+  color: #d32f2f;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
 /* 投票ボタンコンテナ */
 .vote-container {
   text-align: center;
