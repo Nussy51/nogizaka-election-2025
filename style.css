@@ -21,7 +21,7 @@ body, html {
   transform: translate(-50%, -18%);
   color: white;
   font-family: 'Anton', sans-serif;
-  font-size: 5.5rem; /* ← ここを小さく */
+  font-size: 4rem; /* ← ここを小さく */
   line-height: 1.3;
   text-align: center;
   text-shadow: 5px 5px 12px rgba(0, 0, 0, 0.85);
@@ -364,7 +364,7 @@ html {
     background-size: contain !important; /* ← ここを追加 */
   }
 .catchcopy {
-    font-size: 3.5rem !important; /* ← スマホ用にも調整 */
+    font-size: 2rem !important; /* ← スマホ用にも調整 */
     top: 16% !important;
     transform: translate(-50%, -16%) !important;
     line-height: 1.2;
