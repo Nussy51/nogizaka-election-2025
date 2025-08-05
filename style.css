@@ -362,15 +362,16 @@ html {
     background-position: top center; /* スマホでは上寄りに調整 */
     background-size: contain !important; /* ← ここを追加 */
   }
+ .catchcopy {
+    font-size: 4rem !important;
+    top: 16% !important;
+    transform: translate(-50%, -16%) !important;
+    line-height: 1.2;
+  }
 }
 img {
   max-width: 100%;
   height: auto;
   display: block;
-}
-  .catchcopy {
-    font-size: 4rem !important;  /* ← スマホでもドーン！ */
-    top: 16% !important;
-    transform: translate(-50%, -16%) !important;
-    line-height: 1.2;
-  }
+} 
+ 
