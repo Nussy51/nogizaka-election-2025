@@ -364,7 +364,7 @@ html {
     background-size: contain !important; /* ← ここを追加 */
   }
 .catchcopy {
-    font-size: 1rem !important; /* ← スマホ用にも調整 */
+    font-size: 1.5rem !important; /* ← スマホ用にも調整 */
     top: 16% !important;
     transform: translate(-50%, -16%) !important;
     line-height: 1.2;
