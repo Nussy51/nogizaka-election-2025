@@ -369,6 +369,10 @@ html {
     transform: translate(-50%, -16%) !important;
     line-height: 1.2;
   }
+  .overview-text p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
 }
 img {
   max-width: 100%;
